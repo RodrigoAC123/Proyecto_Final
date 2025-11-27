@@ -81,44 +81,18 @@ df = user_input_features()
 datos = pd.read_csv("ActividadFinal.csv", encoding="latin-1")
 
 
-datos["Costo_num"] = (
-    datos["Costo"]
-    .astype(str)
-    .str.replace(r"[\$,]", "", regex=True)
-    .astype(float)
-)
+X = datos.drop(columns='Costo')
+y = datos['Costo']
 
-datos["Presupuesto_num"] = (
-    datos["Presupuesto"]
-    .astype(str)
-    .str.replace(r"[\$,]", "", regex=True)
-    .astype(float)
-)
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=01613726)
+LR = LinearRegression()
+LR.fit(X_train,y_train)
 
+b1 = LR.coef_
+b0 = LR.intercept_
+prediccion = b0 + b1[0]*df['Actividad'] + b1[1]*df['Presupuesto'] + b1[2]*df['Tiempo invertido en minutos'] + b1[3]*df['Tipo'] + b1[4]*df['Momento'] + b1[5]*df['No. de personas']
 
-X = datos[
-    [
-        "Actividad",
-        "Presupuesto_num",
-        "Tiempo invertido en minutos",
-        "Tipo",
-        "Momento",
-        "No. de personas",
-    ]
-]
-y = datos["Costo_num"]
-
-
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.30, random_state=1613726
-)
-
-modelo = LinearRegression()
-modelo.fit(X_train, y_train)
-
-
-prediccion = modelo.predict(df)[0]
-
-st.subheader("Cálculo del costo")
-st.write(f"El costo estimado de la actividad es: **${prediccion:,.2f}** pesos")
+st.subheader('Gasto de la actividad')
+st.write('El gasto final es ', prediccion)
