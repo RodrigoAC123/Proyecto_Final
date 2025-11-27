@@ -13,7 +13,7 @@ def user_input_features():
    
 
     Actividad = st.number_input(
-        "Actividad (por número):",
+        "Actividad por número (Farmacia y doctor = 1) (Gastos inecesarios = 2) (Cena con amigos = 3) (Cena con la novia = 4) (Gasolina = 5) (Oxxo = 6) (Súper = 7):",
         min_value=1,
         max_value=10,
         value=1,
@@ -37,7 +37,7 @@ def user_input_features():
     )
 
     Tipo = st.number_input(
-        "Tipo (1, 2 o 3):",
+        "Tipo (Alimentos/Salud = 1) (Entretenimiento/Ocio = 2) (Transporte= 3):",
         min_value=1,
         max_value=3,
         value=1,
@@ -45,7 +45,7 @@ def user_input_features():
     )
 
     Momento = st.number_input(
-        "Momento (1, 2 o 3):",
+        "Momento (Mañana = 1) (Tarde = 2) (Noche = 3):",
         min_value=1,
         max_value=3,
         value=1,
@@ -53,7 +53,7 @@ def user_input_features():
     )
 
     Personas = st.number_input(
-        "Número de personas:",
+        "Número de personas: 1-4",
         min_value=1,
         max_value=10,
         value=1,
