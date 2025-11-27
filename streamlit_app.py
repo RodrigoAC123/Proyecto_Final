@@ -92,7 +92,7 @@ LR.fit(X_train,y_train)
 
 b1 = LR.coef_
 b0 = LR.intercept_
-prediccion = b0 + b1[0]*df['Actividad'] + b1[1]*df['Presupuesto'] + b1[2]*df['Tiempo invertido en minutos'] + b1[3]*df['Tipo'] + b1[4]*df['Momento'] + b1[5]*df['No. de personas']
+prediccion = b0 + b1[0]*df['Actividad'] + b1[1]*df['Presupuesto_num'] + b1[2]*df['Tiempo invertido en minutos'] + b1[3]*df['Tipo'] + b1[4]*df['Momento'] + b1[5]*df['No. de personas']
 
 st.subheader('Gasto de la actividad')
 st.write('El gasto final es ', prediccion)
