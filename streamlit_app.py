@@ -14,69 +14,30 @@ def user_input_features():
 
     Actividad = st.number_input(
         "Actividad por número (Farmacia y doctor = 1) (Gastos inecesarios = 2) (Cena con amigos = 3) (Cena con la novia = 4) (Gasolina = 5) (Oxxo = 6) (Súper = 7):",
-        min_value=1,
-        max_value=10,
-        value=1,
-        step=1,
-    )
+        min_value=1,max_value=10,value=1,step=1,)
 
     Presupuesto = st.number_input(
-        "Presupuesto estimado (en pesos):",
-        min_value=0.0,
-        max_value=10000.0,
-        value=0.0,
-        step=50.0,
-    )
+        "Presupuesto estimado (en pesos):",min_value=0.0,max_value=10000.0,value=0.0,step=50.0,)
 
     Tiempo = st.number_input(
-        "Tiempo invertido en minutos:",
-        min_value=0,
-        max_value=300,
-        value=0,
-        step=5,
-    )
+        "Tiempo invertido en minutos:",min_value=0,max_value=300,value=0,step=5,)
 
     Tipo = st.number_input(
-        "Tipo (Alimentos/Salud = 1) (Entretenimiento/Ocio = 2) (Transporte= 3):",
-        min_value=1,
-        max_value=3,
-        value=1,
-        step=1,
-    )
+        "Tipo (Alimentos/Salud = 1) (Entretenimiento/Ocio = 2) (Transporte= 3):",min_value=1,max_value=3,value=1,step=1,)
 
     Momento = st.number_input(
-        "Momento (Mañana = 1) (Tarde = 2) (Noche = 3):",
-        min_value=1,
-        max_value=3,
-        value=1,
-        step=1,
-    )
+        "Momento (Mañana = 1) (Tarde = 2) (Noche = 3):",min_value=1,max_value=3,value=1,step=1,)
 
-    Personas = st.number_input(
-        "Número de personas: 1-4",
-        min_value=1,
-        max_value=10,
-        value=1,
-        step=1,
-    )
+    Personas = st.number_input("Número de personas: 1-4",min_value=1,max_value=10,value=1,step=1,)
 
     
-    user_input_data = {
-        "Actividad": Actividad,
-        "Presupuesto_num": Presupuesto,
-        "Tiempo invertido en minutos": Tiempo,
-        "Tipo": Tipo,
-        "Momento": Momento,
-        "No. de personas": Personas,
-    }
+    user_input_data = {"Actividad": Actividad,"Presupuesto_num": Presupuesto,"Tiempo invertido en minutos": Tiempo,"Tipo": Tipo,"Momento": Momento,"No. de personas": Personas,}
 
     features = pd.DataFrame(user_input_data, index=[0])
     return features
 
 
 df = user_input_features()
-
-
 
 datos = pd.read_csv("ActividadFinal.csv", encoding="latin-1")
 
