@@ -31,7 +31,12 @@ def user_input_features():
     Personas = st.number_input("Número de personas: 1-4",min_value=1,max_value=10,value=1,step=1,)
 
     
-    user_input_data = {"Actividad": Actividad,"Presupuesto_num": Presupuesto,"Tiempo invertido en minutos": Tiempo,"Tipo": Tipo,"Momento": Momento,"No. de personas": Personas,}
+    user_input_data = {"Actividad": Actividad,
+                       "Presupuesto_num": Presupuesto,
+                       "Tiempo invertido en minutos": Tiempo,
+                       "Tipo": Tipo,
+                       "Momento": Momento,
+                       "No. de personas": Personas,}
 
     features = pd.DataFrame(user_input_data, index=[0])
     return features
